@@ -21,6 +21,10 @@
     "eslint-plugin-standard": "^4.0.1",
     "node-dev": "^4.0.0"
   },
+  "engines": {
+    "node": "10.17.0",
+    "yarn": "1.19.0"
+  },
   "scripts": {
     "serve": "node index.js",
     "serve-dev": "node-dev index.js",

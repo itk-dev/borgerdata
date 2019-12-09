@@ -60,7 +60,7 @@ Whenever changes is merged in to the master branch, a docker image should be bui
 ```bash
 docker build -t itkdev/borgerdata .
 docker tag <DOCKER_IMAGE> docker.pkg.github.com/itk-dev/borgerdata/app:latest
-ocker push docker.pkg.github.com/itk-dev/borgerdata/app:latest
+docker push docker.pkg.github.com/itk-dev/borgerdata/app:latest
 ```
 
 ## Deployment
