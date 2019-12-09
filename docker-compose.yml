@@ -9,7 +9,8 @@ networks:
     
 services:
   node:
-    image: node:10
+    # image: node:10
+    build: .
     networks:
       - app
       - frontend

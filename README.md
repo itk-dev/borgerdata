@@ -20,10 +20,11 @@ cp .env.dist .env
 docker-compose pull
 docker-compose up --detach
 
-docker run -v ${PWD}:/app itkdev/yarn:latest install
+docker-compose exec node yarn install
 
-docker-compose exec node node_modules/knex/bin/cli.js migrate:latest
-docker-compose exec node node_modules/knex/bin/cli.js seed:run
+# Make sure there is a database created on the server before running the following commands
+docker-compose exec node yarn knex migrate:latest
+docker-compose exec node yarn knex seed:run
 ```
 
 You should now be able to send a request and get some data back:
@@ -51,5 +52,43 @@ Expected result:
 }
 ```
 
+## Release
+
+This software does not follow a versioning scheme, instead the latest production ready version is the one in the master branch.
+
+Whenever changes is merged in to the master branch, a docker image should be build and pushed to the package repository:
+```bash
+docker build -t itkdev/borgerdata .
+docker tag <DOCKER_IMAGE> docker.pkg.github.com/itk-dev/borgerdata/app:latest
+ocker push docker.pkg.github.com/itk-dev/borgerdata/app:latest
+```
+
 ## Deployment
- Not implemented yet.
+ 
+ You will need an environment where the following is present:
+
+- [Node js](https://nodejs.org) v10.17.0.
+- [Yarn](https://yarnpkg.com/) v1.19.1.
+
+Place the code in the environment and create a .env file with the following contents:
+
+```ini
+SQL_SERVER=<URL-TO-SQL-SERVER>
+SQL_PORT=<PORT>
+SQL_USER=<USER>
+SQL_PASSWORD=<PASSWORD>
+SQL_DATABASE=<DATABASE>
+SQL_SCHEMA=<SCHEMA>
+SQL_TABLE=<TABLE>
+#SQL_DOMAIN=<DOMAIN>
+```
+
+Install the dependencies:
+```bash
+yarn install --production
+```
+
+Run the app:
+```bash
+yarn serve
+```
