@@ -29,9 +29,26 @@ docker-compose exec node node_modules/knex/bin/cli.js seed:run
 You should now be able to send a request and get some data back:
 ```bash
 curl http://$(docker-compose port node 8081)/citizen/1234567891
+```
 
-# Should return the following:
-# [{"CPR":"1234567891","Fornavn":"Hans","Mellemnavn":null,"Efternavn":"Hansen","Adresseringsnavn":null,"Vejnavn":"Testvej","Husnr":"11","Etage":null,"Side":null,"Adresseringsadresse":null,"Bynavn":"Roskilde","Postnummer":"4000","Postdistrikt":null,"PostnummerOgBy":null}]
+Expected result:
+```json
+{
+  "CPR": "1234567891",
+  "Fornavn": "Hans",
+  "Mellemnavn": null,
+  "Efternavn": "Hansen",
+  "Adresseringsnavn": null,
+  "Vejnavn": "Testvej",
+  "Husnr": "11",
+  "Etage": null,
+  "Side": null,
+  "Adresseringsadresse": null,
+  "Bynavn": "Roskilde",
+  "Postnummer": "4000",
+  "Postdistrikt": null,
+  "PostnummerOgBy": null
+}
 ```
 
 ## Deployment
