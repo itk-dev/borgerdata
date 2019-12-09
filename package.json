@@ -1,0 +1,20 @@
+{
+  "name": "borgerdata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:itk-dev/borgerdata.git",
+  "author": "Lars Steen <lats@aarhus.dk>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.20.3",
+    "mssql": "^6.0.1",
+    "node-dev": "^4.0.0"
+  },
+  "scripts": {
+    "serve": "node index.js",
+    "serve-dev": "node-dev index.js"
+  }
+}
