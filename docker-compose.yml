@@ -1,0 +1,41 @@
+version: "3"
+
+networks:
+  frontend:
+    external: true
+  app:
+    driver: bridge
+    internal: false
+    
+services:
+  node:
+    # image: node:10
+    build: .
+    networks:
+      - app
+      - frontend
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - sqlserver
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "8081"
+    command: "npm run serve-dev"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=frontend"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_DOMAIN}`)"
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+      - app
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SQL_PASSWORD}
+    ports:
+      - "1433"

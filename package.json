@@ -1,0 +1,34 @@
+{
+  "name": "borgerdata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:itk-dev/borgerdata.git",
+  "author": "Lars Steen <lats@aarhus.dk>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.20.3",
+    "mssql": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "node-dev": "^4.0.0"
+  },
+  "engines": {
+    "node": "10.17.0",
+    "yarn": "1.19.1"
+  },
+  "scripts": {
+    "serve": "node index.js",
+    "serve-dev": "node-dev index.js",
+    "check-coding-standards": "eslint --config .eslintrc.js '*.js'",
+    "apply-coding-standards": "eslint --config .eslintrc.js '*.js' --fix"
+  }
+}
