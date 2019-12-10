@@ -74,6 +74,14 @@ docker push docker.pkg.github.com/itk-dev/borgerdata/app:latest
 Place the code in the environment and create a .env file with the following contents:
 
 ```ini
+###> node ###
+NODE_ENV=production
+###< node ###
+
+###> APP ###
+APP_PORT=8081
+###< APP ###
+
 SQL_SERVER=<URL-TO-SQL-SERVER>
 SQL_PORT=<PORT>
 SQL_USER=<USER>
