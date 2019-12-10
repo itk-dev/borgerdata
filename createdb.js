@@ -8,7 +8,6 @@ const knex = require('knex')(configuration)
 const database = process.env.SQL_DATABASE
 const schema = process.env.SQL_SCHEMA
 
-//const createDatabaseSql = `CREATE DATABASE ${database}`
 const createDatabaseSql = `
 USE master
 
