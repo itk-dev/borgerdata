@@ -3,10 +3,9 @@ dotenv.config()
 
 const express = require('express')
 const app = express()
-const port = 8081
+const port = process.env.APP_PORT
 
-const environment = process.env.NODE_ENV || 'development'
-const configuration = require('./knexfile.js')[environment]
+const configuration = require('./knexfile.js')
 const knex = require('knex')(configuration)
 
 const database = process.env.SQL_DATABASE
