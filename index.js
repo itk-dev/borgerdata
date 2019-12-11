@@ -27,7 +27,7 @@ app.get('/citizen/:cpr', async (req, res) => {
         if (data === undefined || data.length === 0) {
           res.status(404).send('Not found')
         } else {
-          res.send(JSON.stringify(data))
+          res.json(data)
         }
       }
       )
