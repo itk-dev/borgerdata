@@ -15,7 +15,7 @@ exports.up = async function(knex) {
         table
             .specificType('Vejnavn', 'NVARCHAR(40)');
         table
-            .specificType('Husnr', 'VARCHAR(4)')
+            .specificType('HusNr', 'VARCHAR(4)')
         table
             .specificType('Etage', 'VARCHAR(2)')
         table
