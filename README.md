@@ -42,7 +42,7 @@ Expected result:
   "Efternavn": "Hansen",
   "Adresseringsnavn": null,
   "Vejnavn": "Testvej",
-  "Husnr": "11",
+  "HusNr": "11",
   "Etage": null,
   "Side": null,
   "Adresseringsadresse": null,
