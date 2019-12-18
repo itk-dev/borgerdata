@@ -1,6 +1,6 @@
 
 exports.up = async function(knex) {
-    await knex.schema.createTable(process.env.SQL_TABLE, table => {
+    await knex.schema.createTable(process.env.SQL_SCHEMA + '.' + process.env.SQL_TABLE, table => {
         table
             .specificType('CPR', 'CHAR(10)')
             .notNullable();

@@ -22,7 +22,11 @@ docker-compose up --detach
 
 docker-compose exec node yarn install
 
+# THE FOLLOWING IS ONLY FOR TEST/DEVELOPMENT - DO NOT RUN IN PRODUCTION
+
 # Make sure there is a database created on the server before running the following commands
+docker-compose exec node node createdb.js
+
 # Migrations and seeds are only needed in a test/development context so don't run them in production.
 docker-compose exec node yarn knex migrate:latest
 docker-compose exec node yarn knex seed:run
