@@ -61,7 +61,12 @@ Expected result:
 
 This software does not follow a versioning scheme, instead the latest production ready version is the one in the master branch.
 
-Whenever changes is merged in to the master branch, a docker image should be build and pushed to the package repository:
+Whenever changes is merged in to the master branch, minimum two things should happen:
+
+### The changelog should be updated
+All the entries in the [Unreleased] section should be moved to a new entry with the date of the merge as headline. See the [changelog](CHANGELOG.md) for examples.
+
+### A docker image should be build and pushed to the package repository:
 ```bash
 docker build -t itkdev/borgerdata .
 docker tag <DOCKER_IMAGE> docker.pkg.github.com/itk-dev/borgerdata/app:latest

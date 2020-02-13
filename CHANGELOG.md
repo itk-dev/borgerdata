@@ -8,4 +8,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2020-02-20
 ### Added
 - This CHANGELOG file.
+- Added a section about updating the changelog when releasing.
 - [KON-345](https://jira.itkdev.dk/browse/KON-345): Addded a citizen without known address to the seed file. 
